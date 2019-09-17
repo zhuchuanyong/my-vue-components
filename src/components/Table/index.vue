@@ -37,6 +37,7 @@
   </div>
 </template>
 <script>
+import Methods from "./tableMehods";
 export default {
   props: {
     tableConfig: {
@@ -45,6 +46,7 @@ export default {
     }
   },
   methods: {
+    ...Methods,
     // 处理绑定属性
     getColBind(col) {
       let bind = Object.assign({}, col);
@@ -57,8 +59,10 @@ export default {
         von = Object.assign({}, col.event);
       }
       return von;
+    },
+    cd() {
+      this.toggleAllSelection();
     }
-  },
-  computed: {}
+  }
 };
 </script>

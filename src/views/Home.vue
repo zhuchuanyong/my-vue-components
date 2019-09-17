@@ -3,6 +3,7 @@
     home
     <Table ref="homeTable" :tableConfig="tableConfig"></Table>
     <el-button @click="setCurrent">选中第二行</el-button>
+    <el-button @click="clearSelection">clear</el-button>
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   </div>
@@ -25,6 +26,31 @@ export default {
             date: "2016-05-02",
             name: "王小虎",
             address: "上海市普陀区金沙江路 1518 弄"
+          },
+          {
+            date: "2016-05-04",
+            name: "王小虎",
+            address: "上海市普陀区金沙江路 1517 弄"
+          },
+          {
+            date: "2016-05-04",
+            name: "王小虎",
+            address: "上海市普陀区金沙江路 1517 弄"
+          },
+          {
+            date: "2016-05-04",
+            name: "王小虎",
+            address: "上海市普陀区金沙江路 1517 弄"
+          },
+          {
+            date: "2016-05-04",
+            name: "王小虎",
+            address: "上海市普陀区金沙江路 1517 弄"
+          },
+          {
+            date: "2016-05-04",
+            name: "王小虎",
+            address: "上海市普陀区金沙江路 1517 弄"
           },
           {
             date: "2016-05-04",
@@ -85,7 +111,11 @@ export default {
     },
     // 设置单选选择某一行
     setCurrent() {
-      let row = this.tableConfig.data[1];
+      let row = this.tableConfig.data[5];
+      const { homeTable } = this.$refs;
+      console.log(row);
+      console.log(homeTable.setCurrentRow);
+      // homeTable.setCurrentRow(row);
       this.$refs.homeTable.$refs.CTable.setCurrentRow(row);
     },
     selectable(row, index) {
@@ -93,7 +123,21 @@ export default {
     },
     formatter(row) {
       return row.address + "formatter";
+    },
+    clearSelection() {
+      const { homeTable } = this.$refs;
+      console.log(homeTable);
+      console.log(this.$refs);
+      console.log(this.$refs.homeTable);
+      homeTable.toggleAllSelection();
+    },
+    test() {
+      console.log("test");
     }
+  },
+  mounted() {
+    console.log(this);
+    // console.log(this.$options.test());
   }
 };
 </script>
