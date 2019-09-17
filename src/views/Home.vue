@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     home
-    <Table :tableConfig="tableConfig"></Table>
+    <Table ref="homeTable" :tableConfig="tableConfig"></Table>
+    <el-button @click="setCurrent">选中第二行</el-button>
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   </div>
@@ -41,10 +42,11 @@ export default {
             address: "上海市普陀区金沙江路 1516 弄"
           }
         ],
-        // 表格的属性
+        // 表格的属性  对应Table Attributes
         tableAttr: {
           stripe: true,
           border: true,
+          "highlight-current-row": true,
           // "row-class-name": "warning-row"
           "row-class-name": this.tableRowClassName
           // height: 500
@@ -53,10 +55,14 @@ export default {
           "row-click": this.rowClick
         },
         columns: [
-          { type: "selection" },
-          { label: "地址", value: "address" },
-          { label: "日期", value: "date", width: 220 },
-          { label: "姓名", value: "name" }
+          { type: "selection", selectable: this.selectable },
+          {
+            label: "地址",
+            prop: "address",
+            formatter: this.formatter // Table-columns 属性 格式化内容
+          },
+          { label: "日期", prop: "date", width: 220 },
+          { label: "姓名", prop: "name", sortable: true }
         ]
       }
     };
@@ -71,10 +77,22 @@ export default {
       }
       return "";
     },
+    //表格点击事件
     rowClick(row, column, event) {
       console.log(row);
       console.log(column);
       console.log(event);
+    },
+    // 设置单选选择某一行
+    setCurrent() {
+      let row = this.tableConfig.data[1];
+      this.$refs.homeTable.$refs.CTable.setCurrentRow(row);
+    },
+    selectable(row, index) {
+      return index > 2;
+    },
+    formatter(row) {
+      return row.address + "formatter";
     }
   }
 };
