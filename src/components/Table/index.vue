@@ -24,8 +24,7 @@
           v-else-if="item.formatter"
           :key="item.label"
           v-bind="getColBind(item)"
-        >
-        </el-table-column>
+        ></el-table-column>
         <!-- 普通列 -->
         <el-table-column v-else :key="item.label" v-bind="getColBind(item)">
           <template slot-scope="scope" v-if="!item.formatter">
@@ -60,9 +59,6 @@ export default {
       }
       return von;
     },
-    cd() {
-      this.toggleAllSelection();
-    }
   }
 };
 </script>

@@ -2,8 +2,8 @@
   <div class="home">
     home
     <Table ref="homeTable" :tableConfig="tableConfig"></Table>
-    <el-button @click="setCurrent">选中第二行</el-button>
-    <el-button @click="clearSelection">clear</el-button>
+    <el-button @click="setCurrent">单选第六行</el-button>
+    <el-button @click="clearSelection">多选切换</el-button>
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   </div>
@@ -95,7 +95,6 @@ export default {
   },
   methods: {
     tableRowClassName({ row, rowIndex }) {
-      console.log(row);
       if (rowIndex === 1) {
         return "warning-row";
       } else if (rowIndex === 3) {
@@ -113,9 +112,7 @@ export default {
     setCurrent() {
       let row = this.tableConfig.data[5];
       const { homeTable } = this.$refs;
-      console.log(row);
-      console.log(homeTable.setCurrentRow);
-      // homeTable.setCurrentRow(row);
+      homeTable.setCurrentRow(row);
       this.$refs.homeTable.$refs.CTable.setCurrentRow(row);
     },
     selectable(row, index) {
@@ -126,18 +123,11 @@ export default {
     },
     clearSelection() {
       const { homeTable } = this.$refs;
-      console.log(homeTable);
-      console.log(this.$refs);
-      console.log(this.$refs.homeTable);
       homeTable.toggleAllSelection();
     },
     test() {
       console.log("test");
     }
-  },
-  mounted() {
-    console.log(this);
-    // console.log(this.$options.test());
   }
 };
 </script>

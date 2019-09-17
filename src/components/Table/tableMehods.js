@@ -1,11 +1,11 @@
 const METHOD_NAMES = [
-  "setCurrentRow",
+  "clearSelection",
   "toggleRowSelection",
   "toggleRowExpansion",
   "toggleAllSelection",
-  "clearSelection",
-  "clearFilter",
+  "setCurrentRow",
   "clearSort",
+  "clearFilter",
   "doLayout",
   "sort"
 ];
