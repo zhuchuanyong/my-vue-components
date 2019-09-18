@@ -89,12 +89,30 @@ export default {
           },
           { label: "日期", prop: "date", width: 220 },
           { label: "姓名", prop: "name", sortable: true }
-        ]
+        ],
+        pagination: {
+          Attributes: {
+            small: false,
+            background: true,
+            "page-sizes": [20, 50, 100, 200],
+            layout: "prev, pager, next,sizes,jumper",
+            total: 500,
+            "current-page": 2,
+            "page-size": 10
+          },
+          Events: {
+            "size-change": this.sizeChange,
+            "current-change": this.currentChange
+          }
+        }
       }
     };
   },
   methods: {
-    tableRowClassName({ row, rowIndex }) {
+    tableRowClassName(data) {
+      console.log(data);
+      let { row, rowIndex } = data;
+      console.log(row);
       if (rowIndex === 2 || rowIndex === 0) {
         return "warning-row";
       } else if (rowIndex === 3) {
@@ -125,6 +143,15 @@ export default {
     clearSelection() {
       const { homeTable } = this.$refs;
       homeTable.toggleAllSelection();
+    },
+    // 分页
+    // 每页条数发生变化
+    sizeChange(val) {
+      console.log(val);
+    },
+    // 当前页数发生变化
+    currentChange(val) {
+      console.log(val);
     },
     test() {
       console.log("test");

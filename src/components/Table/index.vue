@@ -34,6 +34,12 @@
         </el-table-column>
       </template>
     </el-table>
+    <div class="pagination-pack">
+      <el-pagination
+        v-on="setPaginationEvents()"
+        v-bind="setPaginationAttr()"
+      ></el-pagination>
+    </div>
   </div>
 </template>
 <script>
@@ -47,13 +53,15 @@ export default {
   },
   inheritAttrs: false, // 不会在组件最外层div设置属性
   methods: {
+    // Methods  处理table的方法
     ...Methods,
-    // 处理绑定属性
+    // 处理table绑定属性
     getColBind(col) {
       let bind = Object.assign({}, col);
       delete bind.event;
       return bind;
     },
+    // 处理table绑定事件
     getColOn(col) {
       let von = {};
       if (col.event !== undefined) {
@@ -66,8 +74,19 @@ export default {
       let attr = Object.assign({}, this.$attrs);
       return attr;
     },
+    // 处理table绑定事件
     onTableEvent() {
       let Event = Object.assign({}, this.$listeners);
+      return Event;
+    },
+    // 设置分页属性
+    setPaginationAttr() {
+      let attr = this.tableConfig.pagination.Attributes;
+      return attr;
+    },
+    // 设置分页事件
+    setPaginationEvents() {
+      let Event = this.tableConfig.pagination.Events;
       return Event;
     },
     aaa() {
