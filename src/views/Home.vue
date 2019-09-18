@@ -1,7 +1,13 @@
 <template>
   <div class="home">
     home
+    <!-- row-class-name="warning-row" -->
+    <!-- :row-class-name="tableRowClassName" -->
     <Table
+      stripe
+      border
+      highlight-current-row
+      :row-class-name="tableRowClassName"
       @row-click="rowClick"
       :aa1="1233"
       @faaa="saaa"
@@ -74,18 +80,6 @@ export default {
             address: "上海市普陀区金沙江路 1516 弄"
           }
         ],
-        // 表格的属性  对应Table Attributes
-        tableAttr: {
-          stripe: true,
-          border: true,
-          "highlight-current-row": true,
-          // "row-class-name": "warning-row"
-          "row-class-name": this.tableRowClassName
-          // height: 500
-        },
-        // tableEvent: {
-        //   "row-click": this.rowClick
-        // },
         columns: [
           { type: "selection", selectable: this.selectable },
           {
@@ -101,7 +95,7 @@ export default {
   },
   methods: {
     tableRowClassName({ row, rowIndex }) {
-      if (rowIndex === 1) {
+      if (rowIndex === 2 || rowIndex === 0) {
         return "warning-row";
       } else if (rowIndex === 3) {
         return "success-row";
@@ -118,6 +112,7 @@ export default {
     setCurrent() {
       let row = this.tableConfig.data[5];
       const { homeTable } = this.$refs;
+      console.log(homeTable);
       homeTable.setCurrentRow(row);
       this.$refs.homeTable.$refs.CTable.setCurrentRow(row);
     },

@@ -6,9 +6,8 @@
       :data="tableConfig.data"
       style="width: 100%"
       ref="CTable"
-      v-on="$listeners"
-      row-class-name="warning-row"
-      v-bind="tableConfig.tableAttr"
+      v-on="onTableEvent()"
+      v-bind="bindTableAttr()"
     >
       <template v-for="item in tableConfig.columns">
         <!-- 特殊列 如 多选 序号 -->
@@ -46,6 +45,7 @@ export default {
       required: true
     }
   },
+  inheritAttrs: false, // 不会在组件最外层div设置属性
   methods: {
     ...Methods,
     // 处理绑定属性
@@ -60,6 +60,15 @@ export default {
         von = Object.assign({}, col.event);
       }
       return von;
+    },
+    // 设置需要绑定的table属性
+    bindTableAttr() {
+      let attr = Object.assign({}, this.$attrs);
+      return attr;
+    },
+    onTableEvent() {
+      let Event = Object.assign({}, this.$listeners);
+      return Event;
     },
     aaa() {
       this.$emit("faaa", "测试数据");
