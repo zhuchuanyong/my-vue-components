@@ -1,12 +1,14 @@
 <template>
   <div>
+    <el-button @click="aaa">emit</el-button>
+    <el-button @click="aaa2">emit33</el-button>
     <el-table
       :data="tableConfig.data"
       style="width: 100%"
       ref="CTable"
+      v-on="$listeners"
       row-class-name="warning-row"
       v-bind="tableConfig.tableAttr"
-      v-on="tableConfig.tableEvent"
     >
       <template v-for="item in tableConfig.columns">
         <!-- 特殊列 如 多选 序号 -->
@@ -59,6 +61,16 @@ export default {
       }
       return von;
     },
+    aaa() {
+      this.$emit("faaa", "测试数据");
+    },
+    aaa2() {
+      this.$refs.CTable.faaa();
+    }
+  },
+  mounted() {
+    console.log(this.$attrs);
+    console.log(this.$listeners);
   }
 };
 </script>

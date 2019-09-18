@@ -1,7 +1,13 @@
 <template>
   <div class="home">
     home
-    <Table ref="homeTable" :tableConfig="tableConfig"></Table>
+    <Table
+      @row-click="rowClick"
+      :aa1="1233"
+      @faaa="saaa"
+      ref="homeTable"
+      :tableConfig="tableConfig"
+    ></Table>
     <el-button @click="setCurrent">单选第六行</el-button>
     <el-button @click="clearSelection">多选切换</el-button>
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
@@ -77,9 +83,9 @@ export default {
           "row-class-name": this.tableRowClassName
           // height: 500
         },
-        tableEvent: {
-          "row-click": this.rowClick
-        },
+        // tableEvent: {
+        //   "row-click": this.rowClick
+        // },
         columns: [
           { type: "selection", selectable: this.selectable },
           {
@@ -127,6 +133,10 @@ export default {
     },
     test() {
       console.log("test");
+    },
+    saaa(data) {
+      console.log(123);
+      console.log(data);
     }
   }
 };
