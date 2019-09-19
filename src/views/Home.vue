@@ -4,16 +4,26 @@
     <!-- row-class-name="warning-row" -->
     <!-- :row-class-name="tableRowClassName" -->
     <Table
-      stripe
-      border
       highlight-current-row
       :row-class-name="tableRowClassName"
       @row-click="rowClick"
-      :aa1="1233"
-      @faaa="saaa"
       ref="homeTable"
       :tableConfig="tableConfig"
-    ></Table>
+    >
+      <template slot="runStatus">
+        <el-table-column
+          prop="runStatus"
+          label="运行状态"
+          width="140"
+          show-overflow-tooltip
+        >
+          <template slot-scope="scope">
+            <span>插槽</span>
+            <span>{{ scope.row.runStatusName }}</span>
+          </template>
+        </el-table-column>
+      </template>
+    </Table>
     <el-button @click="setCurrent">单选第六行</el-button>
     <el-button @click="clearSelection">多选切换</el-button>
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
@@ -33,73 +43,61 @@ export default {
   data() {
     return {
       tableConfig: {
-        data: [
-          {
-            date: "2016-05-02",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1518 弄"
-          },
-          {
-            date: "2016-05-04",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1517 弄"
-          },
-          {
-            date: "2016-05-04",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1517 弄"
-          },
-          {
-            date: "2016-05-04",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1517 弄"
-          },
-          {
-            date: "2016-05-04",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1517 弄"
-          },
-          {
-            date: "2016-05-04",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1517 弄"
-          },
-          {
-            date: "2016-05-04",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1517 弄"
-          },
-          {
-            date: "2016-05-01",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1519 弄"
-          },
-          {
-            date: "2016-05-03",
-            name: "王小虎",
-            address: "上海市普陀区金沙江路 1516 弄"
-          }
-        ],
+        // 表格组件高度
+        height: 500,
+        // 表格数据
+        data: [],
+        // 列配置
         columns: [
-          { type: "selection", selectable: this.selectable },
+          // { type: "selection", selectable: this.selectable },
+          // { type: "index", width: 70 },
+          { type: "expand" },
+
           {
-            label: "地址",
-            prop: "address",
+            label: "ip地址",
+            prop: "ipAddress",
             formatter: this.formatter // Table-columns 属性 格式化内容
           },
-          { label: "日期", prop: "date", width: 220 },
-          { label: "姓名", prop: "name", sortable: true }
+          { label: "日期", prop: "createTime", width: 240 },
+          {
+            label: "用户",
+            prop: "createUser",
+            width: 200
+            // render: (h, scope) => {
+            //   console.log(h);
+            //   console.log(scope);
+            //   return (
+            //     <div>
+            //       <span style="margin-left: 10px;color:red">
+            //         {scope.createUser}
+            //       </span>
+            //     </div>
+            //   );
+            // }
+            // formatter: row => {
+            //   return `<span>${row.createUser}<span>`;
+            // }
+          },
+          {
+            label: "名称",
+            prop: "equipmentTypeName",
+            sortable: false
+          },
+          {
+            slot: "runStatus"
+          }
         ],
+        // 表格排序 优先级低于列配置的sortable 默认false
+        sortable: true,
+        // 分页配置
         pagination: {
+          // 分页属性配置项
           Attributes: {
-            small: false,
-            background: true,
-            "page-sizes": [20, 50, 100, 200],
-            layout: "prev, pager, next,sizes,jumper",
             total: 500,
             "current-page": 2,
             "page-size": 10
           },
+          // 分页事件配置项
           Events: {
             "size-change": this.sizeChange,
             "current-change": this.currentChange
@@ -110,9 +108,9 @@ export default {
   },
   methods: {
     tableRowClassName(data) {
-      console.log(data);
-      let { row, rowIndex } = data;
-      console.log(row);
+      // console.log(data);
+      let { rowIndex } = data;
+      // console.log(row);
       if (rowIndex === 2 || rowIndex === 0) {
         return "warning-row";
       } else if (rowIndex === 3) {
@@ -138,7 +136,7 @@ export default {
       return index > 2;
     },
     formatter(row) {
-      return row.address + "formatter";
+      return row.ipAddress + "formatter";
     },
     clearSelection() {
       const { homeTable } = this.$refs;
@@ -160,6 +158,32 @@ export default {
       console.log(123);
       console.log(data);
     }
+  },
+  mounted() {
+    let arr = Array(15);
+    arr.fill({
+      status: "1",
+      groupCode: "rootGroup",
+      createTime: "2019-09-18T09:30:55.000+0000",
+      createUser: "root",
+      updateTime: "2019-09-18T09:30:55.000+0000",
+      updateUser: "root",
+      message: null,
+      id: 13,
+      equipmentCode: "3r5435",
+      equipmentName: "787878",
+      alias: "78687",
+      equipmentTypeId: 104,
+      runStatus: "OFF_LINE",
+      useStatus: "DEBUG",
+      ipAddress: "192.168.1.1",
+      remarks: "",
+      enabled: false,
+      equipmentTypeName: "植球机",
+      runStatusName: "离线",
+      useStatusName: "调试"
+    });
+    this.tableConfig.data = arr;
   }
 };
 </script>
