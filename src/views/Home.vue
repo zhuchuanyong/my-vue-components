@@ -151,39 +151,61 @@ export default {
     currentChange(val) {
       console.log(val);
     },
-    test() {
-      console.log("test");
-    },
-    saaa(data) {
-      console.log(123);
-      console.log(data);
+    settableData() {
+      let arr = [];
+      for (let index = 0; index < 6; index++) {
+        arr.push({
+          status: "1",
+          groupCode: "rootGroup",
+          createTime: "2019-09-18T09:30:55.000+0000",
+          createUser: "root",
+          updateTime: "2019-09-18T09:30:55.000+0000",
+          updateUser: "root",
+          message: null,
+          id: 13,
+          equipmentCode: "3r5435",
+          equipmentName: "787878",
+          alias: "78687",
+          equipmentTypeId: 104,
+          runStatus: "OFF_LINE",
+          useStatus: "DEBUG",
+          ipAddress: "192.168.1.1",
+          remarks: "",
+          enabled: false,
+          equipmentTypeName: "植球机",
+          runStatusName: "离线",
+          useStatusName: "调试"
+        });
+      }
+      this.tableConfig.data = arr;
     }
   },
   mounted() {
-    let arr = Array(15);
-    arr.fill({
-      status: "1",
-      groupCode: "rootGroup",
-      createTime: "2019-09-18T09:30:55.000+0000",
-      createUser: "root",
-      updateTime: "2019-09-18T09:30:55.000+0000",
-      updateUser: "root",
-      message: null,
-      id: 13,
-      equipmentCode: "3r5435",
-      equipmentName: "787878",
-      alias: "78687",
-      equipmentTypeId: 104,
-      runStatus: "OFF_LINE",
-      useStatus: "DEBUG",
-      ipAddress: "192.168.1.1",
-      remarks: "",
-      enabled: false,
-      equipmentTypeName: "植球机",
-      runStatusName: "离线",
-      useStatusName: "调试"
-    });
-    this.tableConfig.data = arr;
+    this.settableData();
+    // let arr = Array(15);
+    // arr.fill({
+    //     status: '1',
+    //     groupCode: 'rootGroup',
+    //     createTime: '2019-09-18T09:30:55.000+0000',
+    //     createUser: 'root',
+    //     updateTime: '2019-09-18T09:30:55.000+0000',
+    //     updateUser: 'root',
+    //     message: null,
+    //     id: 13,
+    //     equipmentCode: '3r5435',
+    //     equipmentName: '787878',
+    //     alias: '78687',
+    //     equipmentTypeId: 104,
+    //     runStatus: 'OFF_LINE',
+    //     useStatus: 'DEBUG',
+    //     ipAddress: '192.168.1.1',
+    //     remarks: '',
+    //     enabled: false,
+    //     equipmentTypeName: '植球机',
+    //     runStatusName: '离线',
+    //     useStatusName: '调试'
+    // });
+    // this.tableConfig.data = arr;
   }
 };
 </script>

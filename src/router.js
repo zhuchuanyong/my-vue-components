@@ -26,6 +26,16 @@ export default new Router({
       path: "/demo",
       name: "demo",
       component: () => import(/* webpackChunkName: "demo" */ "./views/demo.vue")
+    },
+    {
+      path: "/slot",
+      name: "slot",
+      component: () => import(/* webpackChunkName: "slot" */ "./demo/slot")
+    },
+    {
+      path: "/jsx",
+      name: "jsx",
+      component: () => import(/* webpackChunkName: "jsx" */ "./demo/jsx")
     }
   ]
 });
