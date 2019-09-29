@@ -27,3 +27,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+table 属性
+table 事件
+table 方法
+
+Table-column 属性

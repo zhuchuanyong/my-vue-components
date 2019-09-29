@@ -4,30 +4,28 @@
     <!-- row-class-name="warning-row" -->
     <!-- :row-class-name="tableRowClassName" -->
     <Table
+      :aaa="12233"
       highlight-current-row
       :row-class-name="tableRowClassName"
       @row-click="rowClick"
       ref="homeTable"
       :tableConfig="tableConfig"
     >
-      <template slot="runStatus">
-        <el-table-column
-          prop="runStatus"
-          label="运行状态"
-          width="140"
-          show-overflow-tooltip
-        >
-          <template slot-scope="scope">
-            <span>插槽</span>
-            <span>{{ scope.row.runStatusName }}</span>
-          </template>
-        </el-table-column>
+      <template v-slot:expand="{ data }">
+        {{ data.row }}
+        hahhaha32435
+      </template>
+
+      <template v-slot:updateTime="{ data }">
+        {{ data.row.updateTime }}
+      </template>
+      <template v-slot:runStatus="{ data }">
+        <span>插槽</span>
+        <span>{{ data.row.runStatusName }}</span>
       </template>
     </Table>
     <el-button @click="setCurrent">单选第六行</el-button>
     <el-button @click="clearSelection">多选切换</el-button>
-    <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   </div>
 </template>
 
@@ -60,6 +58,12 @@ export default {
           },
           { label: "日期", prop: "createTime", width: 240 },
           {
+            label: "日期2",
+            prop: "updateTime",
+            width: 240,
+            slotName: "updateTime"
+          },
+          {
             label: "用户",
             prop: "createUser",
             width: 200
@@ -84,7 +88,8 @@ export default {
             sortable: false
           },
           {
-            slot: "runStatus"
+            label: "运行状态",
+            slotName: "runStatus"
           }
         ],
         // 表格排序 优先级低于列配置的sortable 默认false

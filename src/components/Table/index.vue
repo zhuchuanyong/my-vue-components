@@ -1,7 +1,5 @@
 <template>
   <div>
-    <el-button @click="aaa">emit</el-button>
-    <el-button @click="aaa2">emit33</el-button>
     <el-table
       :data="tableConfig.data"
       style="width: 100%"
@@ -21,23 +19,14 @@
           v-bind="getColBind(item)"
         >
         </el-table-column>
-        <!-- 展开行  功能未封装完成 -->
+        <!-- 展开行  -->
         <el-table-column
           v-else-if="item.hasOwnProperty('type') && item.type === 'expand'"
           :key="index"
           v-bind="getColBind(item)"
         >
-          <template slot-scope="props">
-            <el-form label-position="left" inline class="demo-table-expand">
-              <el-form-item label="商品名称">
-                <span>{{ props.row.useStatus }}</span>
-              </el-form-item>
-
-              <el-form-item label="商品描述1">
-                <span>{{ props.row.runStatusName }}</span>
-              </el-form-item>
-            </el-form>
-            <!-- <slot :name="item.slot"></slot> -->
+          <template slot-scope="scope">
+            <slot name="expand" v-bind:data="scope"></slot>
           </template>
         </el-table-column>
         <!-- 存在formatter 格式化内容的列 -->
@@ -46,13 +35,16 @@
           :key="index"
           v-bind="getColBind(item)"
         ></el-table-column>
-        <!-- <el-table-column v-else-if="item.render" :key="index">
-          {{ item.render("h", item) }}
-        </el-table-column> -->
         <!-- 插槽 -->
-        <template v-else-if="item.slot">
-          <slot :name="item.slot"> {{ item.slot }}</slot>
-        </template>
+        <el-table-column
+          v-else-if="item.slotName"
+          :key="index"
+          v-bind="getColBind(item)"
+        >
+          <template slot-scope="scope">
+            <slot :name="item.slotName" v-bind:data="scope"></slot>
+          </template>
+        </el-table-column>
         <!-- 普通列 -->
         <el-table-column v-else :key="index" v-bind="getColBind(item)">
           <template slot-scope="scope">
@@ -102,14 +94,6 @@ export default {
       let bind = Object.assign(attr, col);
       return bind;
     },
-    // 处理table列绑定事件
-    getColOn(col) {
-      let von = {};
-      if (col.event !== undefined) {
-        von = Object.assign({}, col.event);
-      }
-      return von;
-    },
     // 设置需要绑定的table属性
     setTableAttr() {
       // 项目table默认属性
@@ -156,17 +140,7 @@ export default {
       }
 
       // return this.tableConfig.height;
-    },
-    aaa() {
-      this.$emit("faaa", "测试数据");
-    },
-    aaa2() {
-      this.$refs.CTable.faaa();
     }
-  },
-  mounted() {
-    console.log(this.$attrs);
-    console.log(this.$listeners);
   }
 };
 </script>
