@@ -1,12 +1,12 @@
 <template>
   <div>
     <el-table
+      ref="CTable"
       :data="tableConfig.data"
       style="width: 100%"
       :height="setTableHeight()"
-      ref="CTable"
-      v-on="setTableEvent()"
       v-bind="setTableAttr()"
+      v-on="setTableEvent()"
     >
       <template v-for="(item, index) in tableConfig.columns">
         <!-- 特殊列 如 多选 序号 -->
@@ -17,8 +17,7 @@
           "
           :key="index"
           v-bind="getColBind(item)"
-        >
-        </el-table-column>
+        />
         <!-- 展开行  -->
         <el-table-column
           v-else-if="item.hasOwnProperty('type') && item.type === 'expand'"
@@ -26,7 +25,7 @@
           v-bind="getColBind(item)"
         >
           <template slot-scope="scope">
-            <slot name="expand" v-bind:data="scope"></slot>
+            <slot name="expand" :data="scope" />
           </template>
         </el-table-column>
         <!-- 存在formatter 格式化内容的列 -->
@@ -34,7 +33,7 @@
           v-else-if="item.formatter"
           :key="index"
           v-bind="getColBind(item)"
-        ></el-table-column>
+        />
         <!-- 插槽 -->
         <el-table-column
           v-else-if="item.slotName"
@@ -42,7 +41,7 @@
           v-bind="getColBind(item)"
         >
           <template slot-scope="scope">
-            <slot :name="item.slotName" v-bind:data="scope"></slot>
+            <slot :name="item.slotName" :data="scope" />
           </template>
         </el-table-column>
         <!-- 普通列 -->
@@ -62,25 +61,26 @@
       </template>
     </el-table>
     <!--  分页 -->
-    <div class="pagination-pack" v-if="tableConfig.pagination ? true : false">
+    <div v-if="tableConfig.pagination ? true : false" class="pagination-pack">
       <el-pagination
         style="text-align: center; margin-top: 12px;"
-        v-on="setPaginationEvents()"
         v-bind="setPaginationAttr()"
-      ></el-pagination>
+        @size-change="onSizeChange"
+        @current-change="onCurrentChange"
+      />
     </div>
   </div>
 </template>
 <script>
 import Methods from "./tableMehods";
 export default {
+  inheritAttrs: false,
   props: {
     tableConfig: {
       type: Object,
       required: true
     }
-  },
-  inheritAttrs: false, // 不会在组件最外层div设置属性
+  }, // 不会在组件最外层div设置属性
   methods: {
     // Methods  处理table的方法
     ...Methods,
@@ -99,13 +99,15 @@ export default {
       // 项目table默认属性
       let defaultAttr = {
         stripe: true,
-        border: true
+        border: true,
+        "min-height": 3000 //解决底部滚动条初始无法滚动问题
       };
       let attr = Object.assign(defaultAttr, this.$attrs);
       return attr;
     },
     // 处理table绑定事件
     setTableEvent() {
+      console.log(this.$listeners);
       let Event = Object.assign({}, this.$listeners);
       return Event;
     },
@@ -119,10 +121,7 @@ export default {
         "current-page": 1,
         "page-size": 20
       };
-      let attr = Object.assign(
-        defaultAttr,
-        this.tableConfig.pagination.Attributes
-      );
+      let attr = Object.assign(defaultAttr, this.tableConfig.pagination);
       return attr;
     },
     // 设置分页事件
@@ -131,15 +130,27 @@ export default {
       return Event;
     },
     setTableHeight() {
+      console.log(this.tableConfig.height);
       if (this.tableConfig.pagination && this.tableConfig.height) {
-        return this.tableConfig.height - 32;
+        console.log(1);
+        console.log(this.tableConfig.height - 52);
+        return this.tableConfig.height - 52;
       } else if (this.tableConfig.height) {
+        console.log(2);
         return this.tableConfig.height;
       } else {
+        console.log(3);
         return null;
       }
 
       // return this.tableConfig.height;
+    },
+    onSizeChange(pageSize) {
+      this.$emit("onSizeChange", pageSize);
+    },
+    // 数量变数事件
+    onCurrentChange(pageNum) {
+      this.$emit("onCurrentChange", pageNum);
     }
   }
 };
