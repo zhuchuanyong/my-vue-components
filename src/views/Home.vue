@@ -9,8 +9,8 @@
       @onCurrentChange="onCurrentChange"
       :tableConfig="tableConfig"
     >
-      <template v-slot:expand="{ data }">{{data.row}}</template>
-      <template v-slot:updateTime="{ data }">{{data.row.updateTime+1}}</template>
+      <template v-slot:expand="{ data }">{{ data.row }}</template>
+      <template v-slot:updateTime="{ data }">{{ data.row.updateTime + 1 }}</template>
       <template v-slot:tool="{ data }">
         <el-button
           class="margin-r-10"
