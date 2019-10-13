@@ -1,6 +1,30 @@
 <template>
   <el-row>
-    <el-col :span="12"></el-col>
+    <el-col :span="12">
+      <el-form
+        :model="ruleForm"
+        :rules="rules"
+        ref="ruleForm"
+        label-width="100px"
+        class="demo-ruleForm"
+      >
+        <el-form-item label="活动名称" prop="name">
+          <el-input v-model="ruleForm.name"></el-input>
+        </el-form-item>
+        <el-form-item label="自定义校验" prop="diy">
+          <el-input v-model="ruleForm.diy"></el-input>
+        </el-form-item>
+        <el-form-item label="自定义校验2" prop="diy2">
+          <el-input v-model="ruleForm.diy2"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('ruleForm')"
+            >立即创建</el-button
+          >
+          <el-button @click="resetForm('ruleForm')">重置</el-button>
+        </el-form-item>
+      </el-form>
+    </el-col>
   </el-row>
 </template>
 
@@ -11,49 +35,56 @@ export default {
       ruleForm: {
         name: "",
         region: "",
-        date1: "",
-        date2: "",
         delivery: false,
         type: [],
+        diy2: "",
+        diy: "",
         resource: "",
         desc: ""
       },
       rules: {
         name: [
-          { required: true, message: "请输入活动名称", trigger: "blur" },
+          {
+            required: true,
+            message: "请输入活动名称",
+            trigger: ["change", "blur"]
+          },
           { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" }
         ],
-        region: [
-          { required: true, message: "请选择活动区域", trigger: "change" }
-        ],
-        date1: [
+        diy: [
           {
-            type: "date",
-            required: true,
-            message: "请选择日期",
+            validator: (rule, value, callback) => {
+              if (!value) {
+                return callback(new Error("diy不能为空"));
+              } else if (value <= 18) {
+                callback(new Error("请输入数字不能小于18"));
+              }
+            },
             trigger: "change"
           }
         ],
-        date2: [
+        diy2: this.validator.isEmpty("hsh不能为空", "233"),
+        desc: [
           {
-            type: "date",
-            required: true,
-            message: "请选择时间",
+            validator: (rule, value, callback) => {
+              if (!value) {
+                return callback(new Error("年龄不能为空"));
+              }
+              setTimeout(() => {
+                if (!Number.isInteger(value)) {
+                  callback(new Error("请输入数字值"));
+                } else {
+                  if (value < 18) {
+                    callback(new Error("必须年满18岁"));
+                  } else {
+                    callback();
+                  }
+                }
+              }, 1000);
+            },
             trigger: "change"
           }
-        ],
-        type: [
-          {
-            type: "array",
-            required: true,
-            message: "请至少选择一个活动性质",
-            trigger: "change"
-          }
-        ],
-        resource: [
-          { required: true, message: "请选择活动资源", trigger: "change" }
-        ],
-        desc: [{ required: true, message: "请填写活动形式", trigger: "blur" }]
+        ]
       }
     };
   },

@@ -10,18 +10,16 @@
       :tableConfig="tableConfig"
     >
       <template v-slot:expand="{ data }">{{ data.row }}</template>
-      <template v-slot:updateTime="{ data }">{{ data.row.updateTime + 1 }}</template>
+      <template v-slot:updateTime="{ data }">
+        {{ data.row.updateTime + 1 }}
+      </template>
       <template v-slot:tool="{ data }">
-        <el-button
-          class="margin-r-10"
-          type="text"
-          @click="viewClick(data)"
-        >查看</el-button>
-        <el-button
-          class="margin-r-10"
-          type="text"
-          @click="editClick(data)"
-        >编辑</el-button>
+        <el-button class="margin-r-10" type="text" @click="viewClick(data)"
+          >查看</el-button
+        >
+        <el-button class="margin-r-10" type="text" @click="editClick(data)"
+          >编辑</el-button
+        >
       </template>
     </Table>
   </div>
@@ -159,6 +157,9 @@ export default {
       console.log(data);
     },
     /**
+     * ! 查看
+     * ? 查看
+     * TODO 查看
      * @method 查看
      */
     viewClick(data) {
