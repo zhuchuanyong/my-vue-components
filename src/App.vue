@@ -1,9 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/demo">demo</router-link> |
+      <router-link to="/">Home</router-link>|
+      <router-link to="/form">form</router-link>|
       <router-link to="/slot">slot</router-link>|
       <router-link to="/jsx">jsx</router-link>
     </div>
@@ -16,7 +15,6 @@
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 #nav {

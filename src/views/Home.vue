@@ -1,32 +1,28 @@
 <template>
   <div class="home">
-    home
-    <!-- row-class-name="warning-row" -->
-    <!-- :row-class-name="tableRowClassName" -->
     <Table
-      :aaa="12233"
       highlight-current-row
       :row-class-name="tableRowClassName"
       @row-click="rowClick"
       
       ref="homeTable"
+      @onSizeChange="onSizeChange"
+      @onCurrentChange="onCurrentChange"
       :tableConfig="tableConfig"
     >
-      <template v-slot:expand="{ data }">
-        {{ data.row }}
-        hahhaha32435
-      </template>
-
+      <template v-slot:expand="{ data }">{{ data.row }}</template>
       <template v-slot:updateTime="{ data }">
-        {{ data.row.updateTime }}
+        {{ data.row.updateTime + 1 }}
       </template>
-      <template v-slot:runStatus="{ data }">
-        <span>插槽</span>
-        <span>{{ data.row.runStatusName }}</span>
+      <template v-slot:tool="{ data }">
+        <el-button class="margin-r-10" type="text" @click="viewClick(data)"
+          >查看</el-button
+        >
+        <el-button class="margin-r-10" type="text" @click="editClick(data)"
+          >编辑</el-button
+        >
       </template>
     </Table>
-    <el-button @click="setCurrent">单选第六行</el-button>
-    <el-button @click="clearSelection">多选切换</el-button>
   </div>
 </template>
 
@@ -50,7 +46,7 @@ export default {
         columns: [
           // { type: "selection", selectable: this.selectable },
           { type: "index", width: 70, fixed: "left" },
-          { type: "expand" },
+          { type: "expand" ,slotName: "expand" },
 
           {
             label: "ip地址",
@@ -74,22 +70,7 @@ export default {
           {
             label: "用户",
             prop: "createUser",
-            width: 200,
-            "min-width": 140
-            // render: (h, scope) => {
-            //   console.log(h);
-            //   console.log(scope);
-            //   return (
-            //     <div>
-            //       <span style="margin-left: 10px;color:red">
-            //         {scope.createUser}
-            //       </span>
-            //     </div>
-            //   );
-            // }
-            // formatter: row => {
-            //   return `<span>${row.createUser}<span>`;
-            // }
+            width: 200
           },
           {
             label: "名称",
@@ -133,7 +114,11 @@ export default {
           },
           {
             label: "运行状态",
-            slotName: "runStatus",
+            slotName: "runStatus"
+          },
+          {
+            label: "操作",
+            slotName: "tool",
             "min-width": 140
           }
         ],
@@ -141,17 +126,9 @@ export default {
         sortable: true,
         // 分页配置
         pagination: {
-          // 分页属性配置项
-          Attributes: {
-            total: 500,
-            "current-page": 2,
-            "page-size": 10
-          },
-          // 分页事件配置项
-          Events: {
-            "size-change": this.sizeChange,
-            "current-change": this.currentChange
-          }
+          total: 500,
+          "current-page": 2,
+          "page-size": 10
         }
       }
     };
@@ -174,23 +151,11 @@ export default {
       console.log(column);
       console.log(event);
     },
-    // 设置单选选择某一行
-    setCurrent() {
-      let row = this.tableConfig.data[5];
-      const { homeTable } = this.$refs;
-      console.log(homeTable);
-      homeTable.setCurrentRow(row);
-      this.$refs.homeTable.$refs.CTable.setCurrentRow(row);
-    },
     selectable(row, index) {
       return index > 2;
     },
     formatter(row) {
       return row.ipAddress + "formatter";
-    },
-    clearSelection() {
-      const { homeTable } = this.$refs;
-      homeTable.toggleAllSelection();
     },
     // 分页
     // 每页条数发生变化
@@ -228,34 +193,25 @@ export default {
         });
       }
       this.tableConfig.data = arr;
+    },
+    /**
+     * @method 表格编辑
+     */
+    editClick(data) {
+      console.log(data);
+    },
+    /**
+     * ! 查看
+     * ? 查看
+     * TODO 查看
+     * @method 查看
+     */
+    viewClick(data) {
+      console.log(data);
     }
   },
   mounted() {
     this.settableData();
-    // let arr = Array(15);
-    // arr.fill({
-    //     status: '1',
-    //     groupCode: 'rootGroup',
-    //     createTime: '2019-09-18T09:30:55.000+0000',
-    //     createUser: 'root',
-    //     updateTime: '2019-09-18T09:30:55.000+0000',
-    //     updateUser: 'root',
-    //     message: null,
-    //     id: 13,
-    //     equipmentCode: '3r5435',
-    //     equipmentName: '787878',
-    //     alias: '78687',
-    //     equipmentTypeId: 104,
-    //     runStatus: 'OFF_LINE',
-    //     useStatus: 'DEBUG',
-    //     ipAddress: '192.168.1.1',
-    //     remarks: '',
-    //     enabled: false,
-    //     equipmentTypeName: '植球机',
-    //     runStatusName: '离线',
-    //     useStatusName: '调试'
-    // });
-    // this.tableConfig.data = arr;
   }
 };
 </script>
