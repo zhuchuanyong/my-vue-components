@@ -8,7 +8,7 @@
         label-width="100px"
         class="demo-ruleForm"
       >
-        <el-form-item label="活动名称" prop="name">
+        <el-form-item label="姓名" prop="name">
           <el-input v-model="ruleForm.name"></el-input>
         </el-form-item>
         <el-form-item label="自定义校验" prop="diy">
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import generateValidator from "../../utils/verify/index";
 export default {
   data() {
     return {
@@ -43,14 +44,15 @@ export default {
         desc: ""
       },
       rules: {
-        name: [
-          {
-            required: true,
-            message: "请输入活动名称",
-            trigger: ["change", "blur"]
-          },
-          { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" }
-        ],
+        // name: [
+        //   {
+        //     required: true,
+        //     message: "请输入活动名称",
+        //     trigger: ["change", "blur"]
+        //   },
+        //   { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" }
+        // ],
+        name: generateValidator("name", "请输入正确姓名", false),
         diy: [
           {
             validator: (rule, value, callback) => {
