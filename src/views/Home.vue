@@ -4,6 +4,7 @@
       highlight-current-row
       :row-class-name="tableRowClassName"
       @row-click="rowClick"
+      
       ref="homeTable"
       @onSizeChange="onSizeChange"
       @onCurrentChange="onCurrentChange"
@@ -44,20 +45,27 @@ export default {
         // 列配置
         columns: [
           // { type: "selection", selectable: this.selectable },
-          { type: "index", width: 70 },
-          { type: "expand", slotName: "expand" },
+          { type: "index", width: 70, fixed: "left" },
+          { type: "expand" ,slotName: "expand" },
 
           {
             label: "ip地址",
             prop: "ipAddress",
+            "min-width": 140,
             formatter: this.formatter // Table-columns 属性 格式化内容
           },
-          { label: "日期", prop: "createTime", width: 240 },
+          {
+            label: "日期",
+            prop: "createTime",
+            width: 240,
+            fixed: "left"
+          },
           {
             label: "日期2",
             prop: "updateTime",
             width: 240,
-            slotName: "updateTime"
+            slotName: "updateTime",
+            "min-width": 140
           },
           {
             label: "用户",
@@ -70,12 +78,48 @@ export default {
             sortable: false
           },
           {
+            label: "名称2",
+            prop: "equipmentTypeName",
+            sortable: false,
+            fixed: "left",
+            "min-width": 140
+          },
+          {
+            label: "名称2",
+            prop: "equipmentTypeName",
+            sortable: false,
+            fixed: "left",
+            "min-width": 140
+          },
+          {
+            label: "名称2",
+            prop: "equipmentTypeName",
+            sortable: false,
+            fixed: "left",
+            "min-width": 140
+          },
+          {
+            label: "名称2",
+            prop: "equipmentTypeName",
+            sortable: false,
+            fixed: "left",
+            "min-width": 140
+          },
+          {
+            label: "名称2",
+            prop: "equipmentTypeName",
+            sortable: false,
+            fixed: "left",
+            "min-width": 140
+          },
+          {
             label: "运行状态",
             slotName: "runStatus"
           },
           {
             label: "操作",
-            slotName: "tool"
+            slotName: "tool",
+            "min-width": 140
           }
         ],
         // 表格排序 优先级低于列配置的sortable 默认false
