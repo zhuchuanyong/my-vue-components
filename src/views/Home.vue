@@ -4,7 +4,6 @@
       highlight-current-row
       :row-class-name="tableRowClassName"
       @row-click="rowClick"
-      
       ref="homeTable"
       @onSizeChange="onSizeChange"
       @onCurrentChange="onCurrentChange"
@@ -46,7 +45,7 @@ export default {
         columns: [
           // { type: "selection", selectable: this.selectable },
           { type: "index", width: 70, fixed: "left" },
-          { type: "expand" ,slotName: "expand" },
+          { type: "expand", slotName: "expand" },
 
           {
             label: "ip地址",

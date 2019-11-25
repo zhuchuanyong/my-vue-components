@@ -1,4 +1,4 @@
-import validator from "validator";
+// import validator from "validator";
 let formRules = {
   isEmpty: (rule, value, callback, options) => {
     // 校验规则
@@ -13,6 +13,7 @@ let formRules = {
 // 生成校验函数
 function creationformRule(ruleValidator, ...params) {
   let [rule, value, callback, options] = params;
+  console.log(rule, value);
   if (ruleValidator) {
     callback(new Error(options.msg));
     return false;

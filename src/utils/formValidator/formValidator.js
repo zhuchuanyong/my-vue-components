@@ -1,4 +1,4 @@
-import validator from "@/utils/validator.js";
+// import validator from "@/utils/validator.js";
 // 验证规则
 let formRules = {
   // 是否为空
@@ -26,6 +26,7 @@ let formRules = {
   },
   // 可以为空
   allowEmpty: (rule, value, callback, msg) => {
+    console.log(msg);
     callback();
     return true;
   },
@@ -50,6 +51,7 @@ let formRules = {
   },
   // ip地址
   isIP: (rule, value, callback, msg, options) => {
+    console.log(options);
     var ipReg = /^(1\d{2}|2[0-4]\d|25[0-5]|[1-9]\d|[1-9])(\.(1\d{2}|2[0-4]\d|25[0-5]|[1-9]\d|\d)){3}$/;
     if (value && !ipReg.test(value)) {
       callback(new Error(msg));
@@ -59,6 +61,7 @@ let formRules = {
     }
   },
   timeRange: (rule, value, callback, msg, options) => {
+    console.log(options);
     if (!Array.isArray(value)) {
       callback(new Error(msg));
       return false;
@@ -123,6 +126,7 @@ let exportValidator = {
   },
   // 邮箱
   isEmail: msg => {
+    console.log(msg);
     let opt = [
       {
         type: "isEmpty",

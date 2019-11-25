@@ -11,8 +11,8 @@
         <el-form-item label="姓名" prop="name">
           <el-input v-model="ruleForm.name"></el-input>
         </el-form-item>
-        <el-form-item label="自定义校验" prop="diy">
-          <el-input v-model="ruleForm.diy"></el-input>
+        <el-form-item label="自定义校验" prop="vnum">
+          <el-input v-model="ruleForm.vnum"></el-input>
         </el-form-item>
         <el-form-item label="自定义校验2" prop="diy2">
           <el-input v-model="ruleForm.diy2"></el-input>
@@ -36,6 +36,7 @@ export default {
       ruleForm: {
         name: "",
         region: "",
+        vnum: "",
         delivery: false,
         type: [],
         diy2: "",
@@ -52,7 +53,12 @@ export default {
         //   },
         //   { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" }
         // ],
-        name: generateValidator("name", "请输入正确姓名", false),
+        name: generateValidator(["name", "请输入正确姓名", false]),
+        vnum: generateValidator(
+          ["num", "请输入数字", false],
+          ["nozero", "开头不能为0", false],
+          ["less", "至少3位数", false]
+        ),
         diy: [
           {
             validator: (rule, value, callback) => {
