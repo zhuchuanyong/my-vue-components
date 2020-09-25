@@ -85,7 +85,7 @@ export default defineComponent({
   },
   setup() {
     // 表单配置
-    const labelCol = ref({ span: 4 });
+    const labelCol = reactive({ span: 4 });
     const wrapperCol = reactive({ span: 14 });
 
     // 地址select 列表
