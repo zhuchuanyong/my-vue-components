@@ -1,4 +1,4 @@
-import { defineComponent,withModifiers, ref, reactive, render } from "vue";
+import { defineComponent, ref, reactive } from "vue";
 
 interface FormType {
   name: string;
@@ -83,7 +83,7 @@ const FormOneTsx = defineComponent({
     const ruleForm = ref();
 
     const onSubmit = () => {
-      console.log('ruleForm', ruleForm)
+      console.log("ruleForm", ruleForm);
       // 表单验证
       ruleForm.value.validate().then((res: any) => {
         console.log("res2", res);
@@ -97,7 +97,7 @@ const FormOneTsx = defineComponent({
           ref={ruleForm}
           rules={rules}
           model={form}
-          label-col= {labelCol}
+          label-col={labelCol}
           // label-col={{ span: 4 }}
           wrapper-col={wrapperCol}
         >
@@ -157,13 +157,11 @@ const FormOneTsx = defineComponent({
           </a-form-item>
 
           <a-form-item>
-        <a-button type="primary" onClick={onSubmit}>
-          确定
-        </a-button>
-        <a-button class="mx-2">
-          取消
-        </a-button>
-      </a-form-item>
+            <a-button type="primary" onClick={onSubmit}>
+              确定
+            </a-button>
+            <a-button class="mx-2">取消</a-button>
+          </a-form-item>
         </a-form>
       </div>
     );
