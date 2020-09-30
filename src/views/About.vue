@@ -1,34 +1,40 @@
 <template>
   <div class="about">
-    <h1>SWRV</h1>
-    <div v-if="error">failed to load</div>
-    <div v-if="!data">loading...</div>
-    <!-- <div v-else>{{ data }}</div> -->
-    <div v-else>
-      <div v-for="item in data.banner" :key="item.targetId">
-        {{ item.imageUrl }}
-      </div>
-    </div>
+    <a-button type="primary" @click="SwrvFlagClick">
+      SwrvFlag: {{ SwrvFlag }}
+    </a-button>
+
+    <a-button type="primary" @click="AoptionsFlagClick">
+      AoptionsFlag: {{ AoptionsFlag }}
+    </a-button>
+
+    <Aoptions v-if="AoptionsFlag"></Aoptions>
+
+    <swr v-if="SwrvFlag"></swr>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
-import useSWRV from "swrv";
+import { defineComponent, ref } from "vue";
+import Aoptions from "@/components/Aoptions.vue";
+import swr from "@/components/swr.vue";
 
 export default defineComponent({
   name: "SWRV",
+  components: {
+    Aoptions,
+    swr,
+  },
   setup() {
-    const fetcher = (url: string) =>
-      fetch(url).then((r) => {
-        return r.json();
-      });
-    const { data, error } = useSWRV("http://localhost:3000/banner", fetcher);
-    console.log("data :>> ", data);
-
-    return {
-      data,
-      error,
+    let AoptionsFlag = ref(false);
+    let SwrvFlag = ref(true);
+    const SwrvFlagClick = () => {
+      SwrvFlag.value = !SwrvFlag.value;
     };
+
+    const AoptionsFlagClick = () => {
+      AoptionsFlag.value = !AoptionsFlag.value;
+    };
+    return { AoptionsFlag, SwrvFlag, AoptionsFlagClick, SwrvFlagClick };
   },
 });
 </script>
