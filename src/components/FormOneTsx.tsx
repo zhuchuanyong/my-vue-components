@@ -11,7 +11,7 @@ interface FormType {
 const FormOneTsx = defineComponent({
   name: "FormOne",
   props: {
-    msg: String
+    msg: String,
   },
   setup() {
     // 表单配置
@@ -22,43 +22,43 @@ const FormOneTsx = defineComponent({
     const addressList = reactive([
       {
         label: "济南",
-        val: "100"
+        val: "100",
       },
       {
         label: "青岛",
-        val: "101"
-      }
+        val: "101",
+      },
     ]);
 
     // 爱好 列表
     const likeList = reactive([
       {
         label: "抽烟",
-        val: "1"
+        val: "1",
       },
       {
         label: "喝酒",
-        val: "2"
+        val: "2",
       },
       {
         label: "烫头",
-        val: "3"
-      }
+        val: "3",
+      },
     ]);
 
     const genderList = reactive([
       {
         label: "男",
-        val: "male"
+        val: "male",
       },
       {
         label: "女",
-        val: "Female"
+        val: "Female",
       },
       {
         label: "嫐",
-        val: "neutral"
-      }
+        val: "neutral",
+      },
     ]);
 
     // 表单数据
@@ -68,7 +68,7 @@ const FormOneTsx = defineComponent({
       date: undefined,
       disabled: false,
       like: [],
-      gender: "male"
+      gender: "male",
     });
 
     const rules = reactive({
@@ -76,9 +76,9 @@ const FormOneTsx = defineComponent({
         {
           required: true,
           message: "请输入用户名",
-          trigger: "blur"
-        }
-      ]
+          trigger: "blur",
+        },
+      ],
     });
     const ruleForm = ref();
 
@@ -109,7 +109,7 @@ const FormOneTsx = defineComponent({
               v-model={[form.address, "value"]}
               placeholder="请选择地址"
             >
-              {addressList.map(item => {
+              {addressList.map((item) => {
                 return (
                   <a-select-option key={item.val} value={item.val}>
                     {item.label}
@@ -135,7 +135,7 @@ const FormOneTsx = defineComponent({
 
           <a-form-item label="爱好">
             <a-checkbox-group v-model={[form.like, "value"]}>
-              {likeList.map(item => {
+              {likeList.map((item) => {
                 return (
                   <a-checkbox key={item.val} value={item.val} name="type">
                     {item.label}
@@ -146,7 +146,7 @@ const FormOneTsx = defineComponent({
           </a-form-item>
           <a-form-item label="性别">
             <a-radio-group v-model={[form.gender, "value"]}>
-              {genderList.map(item => {
+              {genderList.map((item) => {
                 return (
                   <a-radio value={item.val} key={item.val}>
                     {item.label}
@@ -165,7 +165,7 @@ const FormOneTsx = defineComponent({
         </a-form>
       </div>
     );
-  }
+  },
 });
 
 export default FormOneTsx;
