@@ -1,5 +1,5 @@
 const path = require("path");
-function resolve(dir = "") {
+function resolve (dir = "") {
   return path.join(__dirname, dir);
 }
 module.exports = {
@@ -8,8 +8,12 @@ module.exports = {
     resolve: {
       alias: {
         "@": resolve("src"),
-        "@style": resolve("src/style")
-      }
-    }
-  }
+        "@style": resolve("src/style"),
+        "@views": resolve("src/views"),
+        "@UseHooksAnimation": resolve(
+          "src/views/UseHooks/components/animation"
+        ),
+      },
+    },
+  },
 };

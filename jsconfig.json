@@ -1,0 +1,30 @@
+{
+  // "compilerOptions": {
+  //   "baseUrl": "./",
+  //   "paths": {
+  //     "@/*": [
+  //       "src/*"
+  //     ],
+  //     "@style/*": [
+  //       "src/style/*"
+  //     ],
+  //     "@views/*": [
+  //       "src/views/*"
+  //     ],
+  //     "@UseHooksAnimation": [
+  //       "src/views/UseHooks/components/animation/*"
+  //     ]
+  //   }
+  // },
+  // "include": [
+  //   "src/**/*.ts",
+  //   "src/**/*.tsx",
+  //   "src/**/*.vue",
+  //   "tests/**/*.ts",
+  //   "tests/**/*.tsx",
+  // ],
+  // "exclude": [
+  //   "node_modules",
+  //   "dist"
+  // ]
+}

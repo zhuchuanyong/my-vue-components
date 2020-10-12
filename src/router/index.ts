@@ -16,6 +16,13 @@ const routes: Array<RouteRecordRaw> = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+  {
+    path: "/usehook",
+    name: "Usehook",
+
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/UseHooks/index.vue"),
+  },
 ];
 
 const router = createRouter({
