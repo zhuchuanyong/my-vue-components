@@ -92,7 +92,10 @@ const FormOneTsx = defineComponent({
 
     return () => (
       <div class="hello ">
-        <div>Composition API</div>
+        <div>Composition API JSX</div>
+        <a-button type="primary" onClick={onSubmit}>
+          确定
+        </a-button>
         <a-form
           ref={ruleForm}
           rules={rules}

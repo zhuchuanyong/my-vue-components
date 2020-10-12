@@ -12,8 +12,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import FormOne from "@/components/FormOne.vue"; // @ is an alias to /src
-import FormOneTsx from "@/components/FormOneTsx.tsx";
+import FormOne from "/@/components/FormOne.vue"; // @ is an alias to /src
+import FormOneTsx from "/@/components/FormOneTsx.tsx";
 
 export default defineComponent({
   name: "Home",

@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vite build"
   },
   "dependencies": {
-    "@vueuse/core": "^4.0.0-beta.21",
-    "ant-design-vue": "^2.0.0-beta.9",
+    "@vueuse/core": "^4.0.0-beta.22",
+    "ant-design-vue": "^2.0.0-beta.10",
     "core-js": "^3.6.5",
     "swrv": "^1.0.0-beta.4",
     "tailwindcss": "^1.8.10",
@@ -20,22 +19,16 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
-    "@vue/babel-plugin-jsx": "^1.0.0-rc.3",
-    "@vue/cli-plugin-babel": "~4.5.6",
-    "@vue/cli-plugin-eslint": "~4.5.6",
-    "@vue/cli-plugin-router": "~4.5.6",
-    "@vue/cli-plugin-typescript": "~4.5.6",
-    "@vue/cli-plugin-vuex": "~4.5.6",
-    "@vue/cli-service": "~4.5.6",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/eslint-config-typescript": "^5.1.0",
+    "@vue/compiler-sfc": "^3.0.0-rc.1",
     "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^7.0.0-0",
     "prettier": "^2.1.2",
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
-    "typescript": "~4.0.3"
+    "typescript": "~4.0.3",
+    "vite": "^1.0.0-rc.1",
+    "vue-eslint-parser": "^7.1.0"
   }
 }

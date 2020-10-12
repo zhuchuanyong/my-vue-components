@@ -8,15 +8,15 @@
       AoptionsFlag: {{ AoptionsFlag }}
     </a-button>
 
-    <Aoptions v-if="AoptionsFlag"></Aoptions>
+    <Aoptions v-if="AoptionsFlag" />
 
-    <swr v-if="SwrvFlag"></swr>
+    <swr v-if="SwrvFlag" />
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import Aoptions from "@/components/Aoptions.vue";
-import swr from "@/components/swr.vue";
+import Aoptions from "/@/components/Aoptions.vue";
+import swr from "/@/components/swr.vue";
 
 export default defineComponent({
   name: "SWRV",

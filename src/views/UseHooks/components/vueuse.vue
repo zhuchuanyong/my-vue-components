@@ -9,11 +9,11 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import useinterval from "@UseHooksAnimation/useInterval.vue";
-import useIntervalFn from "@UseHooksAnimation/useIntervalFn.vue";
-import useNow from "@UseHooksAnimation/useNow.vue";
-import useRaf from "@UseHooksAnimation/useRaf.vue";
-import useTimeout from "@UseHooksAnimation/useTimeout.vue";
+import useinterval from "/@UseHooksAnimation/useInterval.vue";
+import useIntervalFn from "/@UseHooksAnimation/useIntervalFn.vue";
+import useNow from "/@UseHooksAnimation/useNow.vue";
+import useRaf from "/@UseHooksAnimation/useRaf.vue";
+import useTimeout from "/@UseHooksAnimation/useTimeout.vue";
 export default defineComponent({
   name: "vueuse",
   components: {

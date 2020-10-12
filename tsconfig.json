@@ -15,16 +15,16 @@
       "webpack-env"
     ],
     "paths": {
-      "@/*": [
+      "/@/*": [
         "src/*",
       ],
-      "@style": [
+      "/@style": [
         "src/style/*"
       ],
-      "@views": [
+      "/@views": [
         "src/views/*"
       ],
-      "@UseHooksAnimation": [
+      "/@UseHooksAnimation": [
         "src/views/UseHooks/components/animation/*"
       ]
     },
