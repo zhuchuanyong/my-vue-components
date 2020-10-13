@@ -4,8 +4,8 @@
     <p>Ready: {{ ready.toString() }}</p>
     <a-button @click="start" :disabled="!ready" type="primary">
       Start Again
-    </a-button> </a-card
-  >;
+    </a-button>
+  </a-card>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";

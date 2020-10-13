@@ -6,6 +6,7 @@ module.exports = {
   configureWebpack: {
     plugins: [],
     resolve: {
+      extensions: ['.js', '.ts', '.vue', '.json', '.jsx', '.tsx'],
       alias: {
         "@": resolve("src"),
         "@style": resolve("src/style"),

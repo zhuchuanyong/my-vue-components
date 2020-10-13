@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noImplicitAny": false,
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -18,13 +19,13 @@
       "@/*": [
         "src/*",
       ],
-      "@style": [
+      "@style/*": [
         "src/style/*"
       ],
-      "@views": [
+      "@views/*": [
         "src/views/*"
       ],
-      "@UseHooksAnimation": [
+      "@UseHooksAnimation/*": [
         "src/views/UseHooks/components/animation/*"
       ]
     },
@@ -41,6 +42,8 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
+    "src/views/UseHooks/components/animation/useTimeoutFn.tsx",
+    "src/views/UseHooks/components/animation/useTimeoutFn2.jsx",
   ],
   "exclude": [
     "node_modules"
