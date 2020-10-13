@@ -18,13 +18,13 @@ import useSWRV from "swrv";
 export default defineComponent({
   name: "SWRV",
   setup() {
-    const fetcher = (url: string) => fetch(url).then((r) => r.json());
+    const fetcher = (url: string) => fetch(url).then(r => r.json());
     const { data, error } = useSWRV("http://localhost:3000/banner", fetcher);
     console.log("data :>> ", data);
     return {
       data,
-      error,
+      error
     };
-  },
+  }
 });
 </script>

@@ -19,7 +19,7 @@ export default defineComponent({
   name: "Home",
   components: {
     FormOne,
-    FormOneTsx,
+    FormOneTsx
   },
   setup() {
     const counter = ref<number>(0);
@@ -32,6 +32,6 @@ export default defineComponent({
       counter.value--;
     };
     return { counter, addNum, minusNum };
-  },
+  }
 });
 </script>

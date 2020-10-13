@@ -16,6 +16,6 @@ export default defineComponent({
     const elapsed = useRaf();
 
     return { elapsed };
-  },
+  }
 });
 </script>

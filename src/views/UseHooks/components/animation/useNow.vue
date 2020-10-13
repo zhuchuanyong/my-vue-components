@@ -15,6 +15,6 @@ export default defineComponent({
     const now = useNow();
 
     return { now };
-  },
+  }
 });
 </script>

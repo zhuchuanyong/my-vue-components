@@ -25,7 +25,7 @@ export default defineComponent({
     useNow,
     useRaf,
     useTimeout,
-    useTimeoutFn,
-  },
+    useTimeoutFn
+  }
 });
 </script>

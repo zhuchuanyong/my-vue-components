@@ -21,6 +21,6 @@ export default defineComponent({
       stop();
     };
     return { counter, start, stop, reset };
-  },
+  }
 });
 </script>

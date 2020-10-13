@@ -1,15 +1,15 @@
-import { defineComponent, ref, reactive } from "vue";
+import { defineComponent, ref } from "vue";
 import { useTimeoutFn } from "@vueuse/core";
 export default defineComponent({
   name: "FormOne",
   props: {
-    msg: String,
+    msg: String
   },
   setup() {
     const defaultText = "等待3秒";
     const text = ref(defaultText);
 
-    const { ready, start } = useTimeoutFn(() => {
+    const { start } = useTimeoutFn(() => {
       text.value = "Fired!";
     }, 3000);
     const restart = () => {
@@ -27,5 +27,5 @@ export default defineComponent({
         </a-button>
       </a-card>
     );
-  },
+  }
 });

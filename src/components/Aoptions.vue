@@ -6,13 +6,12 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import useSWRV from "swrv";
 
 export default defineComponent({
   name: "axios",
   data() {
     return {
-      banner: [],
+      banner: []
     };
   },
   mounted() {
@@ -21,12 +20,12 @@ export default defineComponent({
   methods: {
     getinfo() {
       fetch("http://localhost:3000/banner")
-        .then((r) => r.json())
-        .then((res) => {
+        .then(r => r.json())
+        .then(res => {
           console.log("res :>> ", res);
           this.banner = res.banners;
         });
-    },
-  },
+    }
+  }
 });
 </script>

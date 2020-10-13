@@ -77,7 +77,7 @@ interface FormType {
 export default defineComponent({
   name: "FormOne",
   props: {
-    msg: String,
+    msg: String
   },
   setup() {
     // 表单配置
@@ -88,43 +88,43 @@ export default defineComponent({
     const addressList = reactive([
       {
         label: "济南",
-        val: "100",
+        val: "100"
       },
       {
         label: "青岛",
-        val: "101",
-      },
+        val: "101"
+      }
     ]);
 
     // 爱好 列表
     const likeList = reactive([
       {
         label: "抽烟",
-        val: "1",
+        val: "1"
       },
       {
         label: "喝酒",
-        val: "2",
+        val: "2"
       },
       {
         label: "烫头",
-        val: "3",
-      },
+        val: "3"
+      }
     ]);
 
     const genderList = reactive([
       {
         label: "男",
-        val: "male",
+        val: "male"
       },
       {
         label: "女",
-        val: "Female",
+        val: "Female"
       },
       {
         label: "嫐",
-        val: "neutral",
-      },
+        val: "neutral"
+      }
     ]);
 
     // 表单数据
@@ -134,7 +134,7 @@ export default defineComponent({
       date: undefined,
       disabled: false,
       like: [],
-      gender: "male",
+      gender: "male"
     });
 
     const rules = reactive({
@@ -142,9 +142,9 @@ export default defineComponent({
         {
           required: true,
           message: "请输入用户名",
-          trigger: "blur",
-        },
-      ],
+          trigger: "blur"
+        }
+      ]
     });
     const ruleForm = ref();
 
@@ -164,8 +164,8 @@ export default defineComponent({
       genderList,
       rules,
       onSubmit,
-      ruleForm,
+      ruleForm
     };
-  },
+  }
 });
 </script>

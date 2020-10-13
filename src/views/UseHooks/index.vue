@@ -29,7 +29,7 @@ import vueuse from "./components/vueuse.vue";
 export default defineComponent({
   name: "Usehook",
   components: {
-    vueuse,
-  },
+    vueuse
+  }
 });
 </script>

@@ -22,11 +22,11 @@ export default defineComponent({
   name: "SWRV",
   components: {
     Aoptions,
-    swr,
+    swr
   },
   setup() {
-    let AoptionsFlag = ref(false);
-    let SwrvFlag = ref(true);
+    const AoptionsFlag = ref(false);
+    const SwrvFlag = ref(true);
     const SwrvFlagClick = () => {
       SwrvFlag.value = !SwrvFlag.value;
     };
@@ -35,6 +35,6 @@ export default defineComponent({
       AoptionsFlag.value = !AoptionsFlag.value;
     };
     return { AoptionsFlag, SwrvFlag, AoptionsFlagClick, SwrvFlagClick };
-  },
+  }
 });
 </script>
