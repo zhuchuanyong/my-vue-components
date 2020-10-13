@@ -3,6 +3,7 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/usehook">usehook</router-link> |
+    <router-link to="/composition">composition-api</router-link> |
   </div>
   <router-view />
 </template>
