@@ -1,5 +1,5 @@
 <template>
-  <div>12324</div>
+  <div class="composition-wrap">12324</div>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
@@ -19,6 +19,13 @@ export default defineComponent({
       counter.value--;
     };
     return { counter, addNum, minusNum };
-  }
+  },
 });
 </script>
+
+<style lang="scss">
+.composition-wrap {
+  font-size: 14px;
+  background-color: $bg-white;
+}
+</style>

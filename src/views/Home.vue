@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-wrap b">
     <a-button type="primary" @click="addNum"> 加1 </a-button>
     <span class="mx-1">counter:{{ counter }}</span>
     <a-button type="primary" @click="minusNum"> 减1 </a-button>
@@ -19,7 +19,7 @@ export default defineComponent({
   name: "Home",
   components: {
     FormOne,
-    FormOneTsx
+    FormOneTsx,
   },
   setup() {
     const counter = ref<number>(0);
@@ -32,6 +32,13 @@ export default defineComponent({
       counter.value--;
     };
     return { counter, addNum, minusNum };
-  }
+  },
 });
 </script>
+<style lang="scss">
+.home-wrap {
+  font-size: 14px;
+  background-color: $bg-white;
+  @include ellipsis(1);
+}
+</style>
