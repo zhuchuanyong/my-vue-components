@@ -2,20 +2,22 @@
   <a-card title="useRaf">
     <p>不清楚是啥</p>
     <p>貌似与动画有关</p>
-    <p>{{ elapsed }}</p>
+    <!-- <p>{{ elapsed }}</p> -->
   </a-card>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useRaf } from "@vueuse/core";
+// import { useRafFn } from "@vueuse/core";
 
 export default defineComponent({
   name: "useRaf",
   components: {},
-  setup() {
-    const elapsed = useRaf();
-
-    return { elapsed };
-  }
+  // setup() {
+  //   // const elapsed = useRafFn();
+  //   const { pause, resume } = useRafFn((elapsed) => {
+  //     console.log(elapsed.value);
+  //   });
+  //   return { pause, resume };
+  // },
 });
 </script>

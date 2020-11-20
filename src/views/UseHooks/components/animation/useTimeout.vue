@@ -18,6 +18,6 @@ export default defineComponent({
     const { ready, start } = useTimeout(5000);
 
     return { ready, start };
-  }
+  },
 });
 </script>
