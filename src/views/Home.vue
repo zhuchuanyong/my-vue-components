@@ -1,3 +1,10 @@
+<!--
+ * @Author: zhuchuanyong
+ * @Date: 2020-10-13 13:12:35
+ * @LastEditors: zhuchuanyong
+ * @LastEditTime: 2020-12-08 16:43:13
+ * @FilePath: \src\views\Home.vue
+-->
 <template>
   <div class="home-wrap b">
     <a-button type="primary" @click="addNum"> 加1 </a-button>
@@ -19,7 +26,7 @@ export default defineComponent({
   name: "Home",
   components: {
     FormOne,
-    FormOneTsx,
+    FormOneTsx
   },
   setup() {
     const counter = ref<number>(0);
@@ -32,7 +39,7 @@ export default defineComponent({
       counter.value--;
     };
     return { counter, addNum, minusNum };
-  },
+  }
 });
 </script>
 <style lang="scss">

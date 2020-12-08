@@ -150,7 +150,7 @@ export default defineComponent({
 
     const onSubmit = () => {
       // 表单验证
-      ruleForm.value.validate().then((res: any) => {
+      ruleForm.value.validate().then((res: unknown) => {
         console.log("res", res);
       });
     };

@@ -1,3 +1,10 @@
+<!--
+ * @Author: zhuchuanyong
+ * @Date: 2020-10-13 16:17:50
+ * @LastEditors: zhuchuanyong
+ * @LastEditTime: 2020-12-08 16:42:52
+ * @FilePath: \src\views\compositionApi.vue
+-->
 <template>
   <div class="composition-wrap">12324</div>
 </template>
@@ -19,7 +26,7 @@ export default defineComponent({
       counter.value--;
     };
     return { counter, addNum, minusNum };
-  },
+  }
 });
 </script>
 
