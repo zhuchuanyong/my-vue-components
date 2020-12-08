@@ -1,16 +1,9 @@
-/*
- * @Author: zhuchuanyong
- * @Date: 2020-10-13 13:12:35
- * @LastEditors: zhuchuanyong
- * @LastEditTime: 2020-12-08 16:44:14
- * @FilePath: \src\router\index.ts
- */
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/Home",
+    path: "/",
     name: "Home",
     component: Home
   },
@@ -31,7 +24,7 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "about" */ "../views/UseHooks/index.vue")
   },
   {
-    path: "/",
+    path: "/composition",
     name: "Composition",
 
     component: () =>
