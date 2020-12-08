@@ -1,3 +1,10 @@
+<!--
+ * @Author: zhuchuanyong
+ * @Date: 2020-12-08 16:47:14
+ * @LastEditors: zhuchuanyong
+ * @LastEditTime: 2020-12-08 16:47:40
+ * @FilePath: \src\views\UseHooks\components\animation\useTimeout.vue
+-->
 <template>
   <a-card title="useTimeout">
     <p>定时器</p>
@@ -18,6 +25,6 @@ export default defineComponent({
     const { ready, start } = useTimeout(5000);
 
     return { ready, start };
-  },
+  }
 });
 </script>

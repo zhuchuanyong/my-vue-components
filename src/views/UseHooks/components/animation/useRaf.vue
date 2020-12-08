@@ -1,3 +1,10 @@
+<!--
+ * @Author: zhuchuanyong
+ * @Date: 2020-12-08 16:47:14
+ * @LastEditors: zhuchuanyong
+ * @LastEditTime: 2020-12-08 16:47:51
+ * @FilePath: \src\views\UseHooks\components\animation\useRaf.vue
+-->
 <template>
   <a-card title="useRaf">
     <p>不清楚是啥</p>
@@ -11,7 +18,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "useRaf",
-  components: {},
+  components: {}
   // setup() {
   //   // const elapsed = useRafFn();
   //   const { pause, resume } = useRafFn((elapsed) => {

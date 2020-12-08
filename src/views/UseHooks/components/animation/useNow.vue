@@ -1,3 +1,10 @@
+<!--
+ * @Author: zhuchuanyong
+ * @Date: 2020-12-08 16:47:14
+ * @LastEditors: zhuchuanyong
+ * @LastEditTime: 2020-12-08 16:48:03
+ * @FilePath: \src\views\UseHooks\components\animation\useNow.vue
+-->
 <template>
   <a-card title="useNow ">
     <p>当前时间</p>
@@ -14,6 +21,6 @@ export default defineComponent({
   setup() {
     // const now = useNow();
     // return { now };
-  },
+  }
 });
 </script>
