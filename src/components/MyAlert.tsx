@@ -1,6 +1,6 @@
 import { defineComponent } from "vue";
 export default defineComponent({
-  // name: "MyAlert",
+  name: "MyAlert",
   setup() {
     return () => (
       <div

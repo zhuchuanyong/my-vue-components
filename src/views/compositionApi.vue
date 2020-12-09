@@ -2,13 +2,12 @@
  * @Author: zhuchuanyong
  * @Date: 2020-10-13 16:17:50
  * @LastEditors: zhuchuanyong
- * @LastEditTime: 2020-12-09 16:36:07
+ * @LastEditTime: 2020-12-09 17:56:42
  * @FilePath: \src\views\compositionApi.vue
 -->
 <template>
   <div class="composition-wrap">
-    12324
-
+    <div class="cssnext">dev</div>
     <myalert></myalert>
   </div>
 </template>
@@ -28,9 +27,15 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
+<style>
+:root {
+  --mainColor: #12345678;
+}
 .composition-wrap {
   font-size: 14px;
-  background-color: $bg-white;
+  color: var(--mainColor);
+  $ .cssnext {
+    color: red;
+  }
 }
 </style>
