@@ -16,16 +16,3 @@ $yellow: #fec171;
 $panGreen: #30b08f;
 $pageBg: #f5f7fa; // 页面背景灰
 $pageBgMain: #fff; // 页面背景灰
-
-.ss {
-  background-color: $bg-white;
-}
-
-@for $i from 1 through 8 {
-  .pb-#{$i * 5} {
-    padding-bottom: $i * 5px;
-  }
-  .pbi-#{$i * 5} {
-    padding-bottom: $i * 5px !important;
-  }
-}

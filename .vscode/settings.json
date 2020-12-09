@@ -1,6 +1,6 @@
 {
   "vetur.format.options.tabSize": 2, // 空格间距大小
-  "editor.formatOnSave": true, // 保存自动格式化文件
+  // "editor.formatOnSave": true, // 保存自动格式化文件
   "eslint.validate": [
     "javascript",
     "javascriptreact",

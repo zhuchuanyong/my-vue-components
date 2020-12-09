@@ -2,28 +2,28 @@
  * @Author: zhuchuanyong
  * @Date: 2020-10-13 16:17:50
  * @LastEditors: zhuchuanyong
- * @LastEditTime: 2020-12-08 18:34:10
+ * @LastEditTime: 2020-12-09 16:36:07
  * @FilePath: \src\views\compositionApi.vue
 -->
 <template>
   <div class="composition-wrap">
     12324
 
-    <MyAlert></MyAlert>
+    <myalert></myalert>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import MyAlert from "@/components/alert";
+import myalert from "@/components/MyAlert";
 // import * as MyAlert from "@/components/alert";
 
 export default defineComponent({
   name: "Home",
   components: {
-    MyAlert
+    myalert
   },
   mounted() {
-    console.log("MyAlert", MyAlert);
+    console.log("MyAlert", myalert);
   }
 });
 </script>

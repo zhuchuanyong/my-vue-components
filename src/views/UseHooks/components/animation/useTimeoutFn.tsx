@@ -20,7 +20,7 @@ export default defineComponent({
     };
     return () => (
       <a-card title="useTimeoutFn">
-        <p>定时器 </p>
+        <p>定时器 ff </p>
         <p>{text.value} </p>
         <a-button onClick={restart} type="primary">
           Start Again
