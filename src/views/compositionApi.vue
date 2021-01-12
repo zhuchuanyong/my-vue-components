@@ -2,7 +2,7 @@
  * @Author: zhuchuanyong
  * @Date: 2020-10-13 16:17:50
  * @LastEditors: zhuchuanyong
- * @LastEditTime: 2020-12-09 17:56:42
+ * @LastEditTime: 2021-01-12 19:58:40
  * @FilePath: \src\views\compositionApi.vue
 -->
 <template>
@@ -33,9 +33,5 @@ export default defineComponent({
 }
 .composition-wrap {
   font-size: 14px;
-  color: var(--mainColor);
-  $ .cssnext {
-    color: red;
-  }
 }
 </style>

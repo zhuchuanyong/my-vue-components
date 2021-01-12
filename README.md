@@ -1,4 +1,4 @@
-# antd-vue3
+# vue3-admin
 
 ## Project setup
 ```

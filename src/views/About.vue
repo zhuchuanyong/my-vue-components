@@ -1,40 +1,12 @@
+<!--
+ * @Author: zhuchuanyong
+ * @Date: 2021-01-04 14:21:51
+ * @LastEditors: zhuchuanyong
+ * @LastEditTime: 2021-01-04 14:46:21
+ * @FilePath: \src\views\About.vue
+-->
 <template>
   <div class="about">
-    <a-button type="primary" @click="SwrvFlagClick">
-      SwrvFlag: {{ SwrvFlag }}
-    </a-button>
-
-    <a-button type="primary" @click="AoptionsFlagClick">
-      AoptionsFlag: {{ AoptionsFlag }}
-    </a-button>
-
-    <Aoptions v-if="AoptionsFlag"></Aoptions>
-
-    <swr v-if="SwrvFlag"></swr>
+    <h1>This is an about page1</h1>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent, ref } from "vue";
-import Aoptions from "@/components/Aoptions.vue";
-import swr from "@/components/swr.vue";
-
-export default defineComponent({
-  name: "SWRV",
-  components: {
-    Aoptions,
-    swr
-  },
-  setup() {
-    const AoptionsFlag = ref(false);
-    const SwrvFlag = ref(true);
-    const SwrvFlagClick = () => {
-      SwrvFlag.value = !SwrvFlag.value;
-    };
-
-    const AoptionsFlagClick = () => {
-      AoptionsFlag.value = !AoptionsFlag.value;
-    };
-    return { AoptionsFlag, SwrvFlag, AoptionsFlagClick, SwrvFlagClick };
-  }
-});
-</script>
