@@ -2,7 +2,7 @@
  * @Author: zhuchuanyong
  * @Date: 2021-01-04 14:21:51
  * @LastEditors: zhuchuanyong
- * @LastEditTime: 2021-01-12 20:14:37
+ * @LastEditTime: 2021-01-13 15:44:52
  * @FilePath: \src\router\index.ts
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
@@ -27,6 +27,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
     path: "/",
     component: layout,
     name:'Home',
+    meta:{ title:'首页', icon: 'el-icon-location'},
     redirect: "/home",
     children: [
       {
@@ -41,6 +42,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
     path: "/about",
     component: layout,
     name: "About",
+    meta:{ title:'关于',icon:"el-icon-menu"},
     redirect: "/index",
     children: [
       {

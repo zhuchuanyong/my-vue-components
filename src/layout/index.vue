@@ -2,7 +2,7 @@
  * @Author: zhuchuanyong
  * @Date: 2021-01-04 14:51:58
  * @LastEditors: zhuchuanyong
- * @LastEditTime: 2021-01-13 11:07:42
+ * @LastEditTime: 2021-01-13 15:04:42
  * @FilePath: \src\layout\index.vue
 -->
 <template>
@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import Sidebar from "./Sidebar/index.vue";
+import { Sidebar } from "./components";
 export default {
   components: {
     Sidebar
