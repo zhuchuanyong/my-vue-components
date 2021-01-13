@@ -2,7 +2,7 @@
  * @Author: zhuchuanyong
  * @Date: 2021-01-04 14:51:58
  * @LastEditors: zhuchuanyong
- * @LastEditTime: 2021-01-04 17:02:02
+ * @LastEditTime: 2021-01-13 11:07:42
  * @FilePath: \src\layout\index.vue
 -->
 <template>
@@ -13,7 +13,7 @@
       <div>tags</div>
       <div>
         appmain
-        <!-- <router-view /> -->
+        <router-view />
       </div>
     </div>
   </div>

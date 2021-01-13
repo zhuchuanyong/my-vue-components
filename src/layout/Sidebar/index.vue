@@ -2,7 +2,7 @@
  * @Author: zhuchuanyong
  * @Date: 2021-01-04 16:54:42
  * @LastEditors: zhuchuanyong
- * @LastEditTime: 2021-01-04 19:19:42
+ * @LastEditTime: 2021-01-13 14:24:41
  * @FilePath: \src\layout\Sidebar\index.vue
 -->
 
@@ -12,8 +12,12 @@
       <img :src="logo" alt="" />
     </div>
     <a-menu mode="inline" class="flex-1" theme="dark">
-      <template :key="index" v-for="(item, index) in routers">
-        <a-menu-item> <mail-outlined />{{ item.name }} </a-menu-item>
+      <template v-for="item in routers">
+        <a-menu-item :key="item.path" v-if="!item?.meta?.hidden ?? true">
+          <router-link :to="item.path">
+            <mail-outlined />{{ item.name }}
+          </router-link>
+        </a-menu-item>
       </template>
     </a-menu>
   </div>
