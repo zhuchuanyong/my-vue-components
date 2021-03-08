@@ -2,7 +2,7 @@
  * @Author: zhuchuanyong
  * @Date: 2021-01-04 14:51:58
  * @LastEditors: zhuchuanyong
- * @LastEditTime: 2021-01-13 15:04:42
+ * @LastEditTime: 2021-01-04 17:02:02
  * @FilePath: \src\layout\index.vue
 -->
 <template>
@@ -13,13 +13,13 @@
       <div>tags</div>
       <div>
         appmain
-        <router-view />
+        <!-- <router-view /> -->
       </div>
     </div>
   </div>
 </template>
 <script>
-import { Sidebar } from "./components";
+import Sidebar from "./Sidebar/index.vue";
 export default {
   components: {
     Sidebar

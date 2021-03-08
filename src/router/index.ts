@@ -2,13 +2,13 @@
  * @Author: zhuchuanyong
  * @Date: 2021-01-04 14:21:51
  * @LastEditors: zhuchuanyong
- * @LastEditTime: 2021-01-13 15:44:52
+ * @LastEditTime: 2021-01-04 19:12:14
  * @FilePath: \src\router\index.ts
  */
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import Home from '../views/Home.vue';
 // import moduleName from '@/layout/index.vue'
-import layout from "@/layout/index.vue";
+import layout from '@/layout/index.vue';
 // meta: {
 //   roles: ['admin', 'editor']   will control the page roles (allow setting multiple roles)
 //   title: 'title'               the name showed in subMenu and breadcrumb (recommend set)
@@ -24,50 +24,50 @@ import layout from "@/layout/index.vue";
 
 const constantRoutes: Array<RouteRecordRaw> = [
   {
-    path: "/",
+    path: '/',
     component: layout,
-    name:'Home',
-    meta:{ title:'首页', icon: 'el-icon-location'},
-    redirect: "/home",
+    redirect: '/home',
     children: [
       {
-        path: "home",
+        path: 'home',
         component: Home,
-        name: "Home",
-        meta: { title: "首页", icon: "dashboard", affix: true }
-      }
-    ]
+        name: 'Home',
+        meta: { title: '首页', icon: 'dashboard', affix: true },
+      },
+    ],
   },
   {
-    path: "/about",
+    path: '/about',
     component: layout,
-    name: "About",
-    meta:{ title:'关于',icon:"el-icon-menu"},
-    redirect: "/index",
+    name: 'About',
+    redirect: '/index',
     children: [
       {
-        path: "index",
+        path: 'index',
         component: () =>
-          import(/* webpackChunkName: "about" */ "../views/About.vue"),
-        name: "Dashboard",
-        meta: { title: "about", icon: "dashboard", affix: true  }
-      }
-    ]
+          import(/* webpackChunkName: "about" */ '../views/About.vue'),
+        name: 'Dashboard',
+        meta: { title: 'about', icon: 'dashboard', affix: true },
+      },
+    ],
   },
   {
-    path: "/login",
+    path: '/login',
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Login.vue"),
-    name: "Login",
-    meta: { hidden: true }
-  }
+      import(/* webpackChunkName: "about" */ '../views/Login.vue'),
+    name: 'Login',
+    meta: {  hidden: true ,title: '登陆',},
+
+  },
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes: constantRoutes
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes:constantRoutes,
 });
 
 export default router;
 
-export { constantRoutes };
+export {
+  constantRoutes
+}

@@ -5,6 +5,6 @@
  * @LastEditTime: 2021-01-04 14:37:06
  * @FilePath: \postcss.config.js
  */
-module.exports = {
-  plugins: [require("tailwindcss"), require("autoprefixer")]
-};
+// module.exports = {
+//   plugins: [require("tailwindcss"), require("autoprefixer")]
+// };
